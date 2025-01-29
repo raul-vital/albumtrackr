@@ -1,0 +1,12 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<section>
+  <div>
+    <h2>{{ album.title }}
+    <h4><i>Artist: {{ album.artist }}</i></h4>
+    <p>Genre: {{album.genres}}</p>
+    <p>Release Date: {{ album.release_date }}</p>
+  </div>
+</section>
+{% endblock %}
