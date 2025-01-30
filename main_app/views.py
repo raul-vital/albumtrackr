@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Album
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 
 # Create your views here.
 def home(request):
@@ -17,3 +17,8 @@ def album_detail(request, album_id):
 class AlbumCreate(CreateView):
     model = Album
     fields = '__all__'
+
+class AlbumUpdate(UpdateView):
+    model = Album
+    fields = '__all__'
+    
