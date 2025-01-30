@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Album
-from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 # Create your views here.
 def home(request):
@@ -21,4 +21,7 @@ class AlbumCreate(CreateView):
 class AlbumUpdate(UpdateView):
     model = Album
     fields = '__all__'
-    
+
+class AlbumDelete(DeleteView):
+    model = Album
+    success_url = '/albums/'

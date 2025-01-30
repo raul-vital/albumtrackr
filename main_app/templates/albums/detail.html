@@ -9,6 +9,7 @@
     <p>Release Date: {{ album.release_date }}</p>
     <div>
         <a href="{% url 'album-update' album.id %}"> Edit </a>
+        <a href="{% url 'album-delete' album.id %}"> Delete </a>
     </div>
   </div>
 </section>
