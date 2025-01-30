@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+<section>
+  <h1>Your Collection: </h1>
+</section>
+
+<section>
+  {% for album in albums %}
+    <div>
+      <div>
+        <a href="{% url 'album-detail' album.id%}">
+          <h2>{{ album.title }}
+        </a>
+        <h4><i>Artist: {{ album.artist }}</i></h4>
+        <p>Genre: {{album.genres}}</p>
+        <p>Release Date: {{ album.release_date }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
