@@ -22,7 +22,7 @@ class AlbumCreate(CreateView):
 
 class AlbumUpdate(UpdateView):
     model = Album
-    fields = '__all__'
+    form_class = AlbumForm
 
 class AlbumDelete(DeleteView):
     model = Album
