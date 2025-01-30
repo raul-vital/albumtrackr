@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Album
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .forms import AlbumForm
 
 # Create your views here.
 def home(request):
@@ -12,11 +13,12 @@ def album_index(request):
 
 def album_detail(request, album_id):
     album = Album.objects.get(id=album_id)
-    return render(request, 'albums/detail.html', {'album': album})
+    album_form = AlbumForm()
+    return render(request, 'albums/detail.html', {'album': album, 'album_form': album_form})
 
 class AlbumCreate(CreateView):
     model = Album
-    fields = '__all__'
+    form_class = AlbumForm
 
 class AlbumUpdate(UpdateView):
     model = Album
