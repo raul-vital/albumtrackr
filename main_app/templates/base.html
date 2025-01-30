@@ -13,8 +13,9 @@
     <header>
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/albums">All Albums</a></li>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'album-index'%}">All Albums</a></li>
+          <li><a href="{% url 'album-create'%}">Add Album</a></li>
         </ul>
       </nav>
     </header>

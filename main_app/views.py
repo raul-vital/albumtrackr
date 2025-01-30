@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Album
+from django.views.generic.edit import CreateView
 
 # Create your views here.
 def home(request):
@@ -12,3 +13,7 @@ def album_index(request):
 def album_detail(request, album_id):
     album = Album.objects.get(id=album_id)
     return render(request, 'albums/detail.html', {'album': album})
+
+class AlbumCreate(CreateView):
+    model = Album
+    fields = '__all__'
