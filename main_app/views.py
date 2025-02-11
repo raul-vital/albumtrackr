@@ -5,27 +5,31 @@ from .forms import AlbumForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from .forms import RegistrationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import CustomLoginForm
+from main_app.authentication import EmailOrUsernameModelBackend 
 
 # Create your views here.
 class Home(LoginView):
     template_name = 'home.html'
 
 class Login(LoginView):
+    form_class = CustomLoginForm
     template_name = 'login.html'
 
 def signup(request):
     error_message = ''
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistrationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            login(request, user)
+            login(request, user, backend='main_app.authentication.EmailOrUsernameModelBackend')
             return redirect('album-index')
         else:
             error_message = 'Invalid sign up - try again'
-    form = UserCreationForm()
+    form = RegistrationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)
 
