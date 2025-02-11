@@ -21,7 +21,12 @@
     </div>
 
     <h3>Add a Song</h3>
-    <form method="post" class="subsection-content" autocomplete="off">
+    <form 
+      action="{% url 'add-song' album.id %}" 
+      method="POST" 
+      class="subsection-content" 
+      autocomplete="off"
+      >
       {% csrf_token %} 
       {{ song_form.as_p }}
       <button type="submit" class="btn submit">Add Song</button>

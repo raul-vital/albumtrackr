@@ -26,7 +26,7 @@ class Song(models.Model):
     lyrics = models.TextField(max_length=100)
 
     def __str__(self):
-        return self.name
+        return f"Song by {self.album.artist} on {self.album.title}"  
 
     def get_absolute_url(self):
         return reverse('song-detail', kwargs={'pk': self.id})

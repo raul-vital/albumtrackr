@@ -22,6 +22,15 @@ class SongForm(forms.ModelForm):
     class Meta:
         model = Song
         fields = ['title', 'release_date', 'release_country', 'mood', 'lyrics']
+        widgets = {
+                'release_date': forms.DateInput(
+                format=('%Y-%m-%d'),
+                attrs={
+                    'placeholder': 'Select a date',
+                    'type': 'date',
+                }
+            ),
+        }
 
 class RegistrationForm(UserCreationForm):
     class Meta:
