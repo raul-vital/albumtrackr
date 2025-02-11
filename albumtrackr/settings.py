@@ -131,4 +131,9 @@ LOGOUT_REDIRECT_URL = 'home'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
+AUTHENTICATION_BACKENDS = [
+        'main_app.authentication.EmailOrUsernameModelBackend',
+        'django.contrib.auth.backends.ModelBackend',
+    ]
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
