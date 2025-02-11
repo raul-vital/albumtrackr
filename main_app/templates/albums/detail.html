@@ -19,6 +19,13 @@
     <div class="subsection-title">
       <h2>Songs</h2>
     </div>
+
+    <h3>Add a Song</h3>
+    <form method="post" class="subsection-content" autocomplete="off">
+      {% csrf_token %} 
+      {{ song_form.as_p }}
+      <button type="submit" class="btn submit">Add Song</button>
+    </form>
     <table>
       <thead>
         <tr>

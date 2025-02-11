@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Album
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .forms import AlbumForm
+from .forms import AlbumForm, Song
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -43,6 +43,12 @@ def album_detail(request, album_id):
     album = Album.objects.get(id=album_id)
     album_form = AlbumForm()
     return render(request, 'albums/detail.html', {'album': album, 'album_form': album_form})
+
+def song_detail(request, song_id):
+    song = Song.objects.get(id=song_id)
+    song_form = SongForm()
+    return render(request, 'songs/detail.html', {'song': song, 'song_form': song_form})
+    
 
 
 class AlbumCreate(LoginRequiredMixin, CreateView):
