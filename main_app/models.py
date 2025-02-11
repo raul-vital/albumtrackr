@@ -30,3 +30,10 @@ class Song(models.Model):
 
     def get_absolute_url(self):
         return reverse('song-detail', kwargs={'pk': self.id})
+
+
+class Api(models.Model):
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"the song is{self.title}"

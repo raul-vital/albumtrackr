@@ -16,6 +16,9 @@ load_dotenv()
 
 import os
 
+YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
+YOUTUBE_SEARCH_URL = os.getenv("YOUTUBE_SEARCH_URL")
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

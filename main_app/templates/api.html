@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube API Search</title>
+</head>
+<body>
+    <header>
+        <h1>Search YouTube Videos</h1>
+
+        <!-- Form to Submit Titles -->
+        <form action="{% url 'api' %}" method="post" class="form-container" autocomplete="off">
+            {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+            </table>
+            <button type="submit" class="btn submit">Search</button>
+        </form>
+    </header>
+
+    <main>
+        <h2>Stored API Titles & Videos</h2>
+        <ul>
+            {% for entry in api_entries %}
+                <li>
+                    <strong>{{ entry.title }}</strong>
+                    {% if entry.title in videos %}
+                        <br>
+                        <iframe width="560" height="315"
+                                src="https://www.youtube.com/embed/{{ videos.entry.title }}"
+                                frameborder="0" allowfullscreen>
+                        </iframe>
+                    {% else %}
+                        <p>No video found.</p>
+                    {% endif %}
+                </li>
+            {% empty %}
+                <p>No searches yet.</p>
+            {% endfor %}
+        </ul>
+    </main>
+</body>
+</html>

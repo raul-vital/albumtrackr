@@ -1,5 +1,5 @@
 from django import forms
-from .models import Album, Song
+from .models import Album, Song, Api
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -39,3 +39,11 @@ class RegistrationForm(UserCreationForm):
 
 class CustomLoginForm(AuthenticationForm):
     username = forms.CharField(label="Username or Email")
+
+
+class ApiForm(forms.ModelForm):
+    class Meta:
+        model = Api
+        fields = ['title']
+
+
