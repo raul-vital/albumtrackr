@@ -13,4 +13,43 @@
     </div>
   </div>
 </section>
-{% endblock %}
+
+<div class="song-container">
+  <section class="song">
+    <div class="subsection-title">
+      <h2>Songs</h2>
+    </div>
+
+    <h3>Add a Song</h3>
+    <form 
+      action="{% url 'add-song' album.id %}" 
+      method="POST" 
+      class="subsection-content" 
+      autocomplete="off"
+      >
+      {% csrf_token %} 
+      {{ song_form.as_p }}
+      <button type="submit" class="btn submit">Add Song</button>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Release Date</th>
+          <th>Release Country</th>
+          <th>Mood</th>
+          <th>Lyrics</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for song in album.song_set.all %}
+          <tr>
+            <td>{{ song.title }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </div>
+  
+  {% endblock %}
