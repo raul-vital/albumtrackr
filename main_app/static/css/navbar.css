@@ -1,0 +1,52 @@
+
+
+nav ul {
+    list-style: none; /* Removes bullets */
+    padding: 0; 
+    margin: 0; /* Removes default margin */
+    display: flex; 
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: #5a0b7a; 
+    border-radius: 4px;
+}
+
+/* ------------------- Logout Button ---------------------- */
+#logout-form {
+    margin: 0;
+    padding: 0;
+    display: inline; /* Ensure form doesn't take extra space */
+}
+
+.logout-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.logout-button:hover {
+    background: #5a0b7a; 
+    border-radius: 4px;
+}
