@@ -54,9 +54,6 @@ class AlbumCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
     
 
-
-
-
 class AlbumUpdate(LoginRequiredMixin, UpdateView):
     model = Album
     form_class = AlbumForm
