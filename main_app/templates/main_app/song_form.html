@@ -1,0 +1,19 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+  <div>
+    {% if object %}
+      <h1>Edit Song</h1>
+    {% else %}
+      <h1>Add a Song</h1>
+    {% endif %}
+  </div>
+  <form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <button type="submit" >Add!</button>
+  </form>
+
+{% endblock %}
