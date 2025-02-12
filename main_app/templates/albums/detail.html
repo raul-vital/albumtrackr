@@ -39,14 +39,18 @@
           <th>Release Country</th>
           <th>Mood</th>
           <th>Lyrics</th>
-          <td><a href="{% url 'song-update' song.id %}" > Edit </a></td>
-          <td><a href="{% url 'song-delete' song.id %}" > Delete </a></td>
         </tr>
       </thead>
       <tbody>
         {% for song in album.song_set.all %}
           <tr>
             <td>{{ song.title }}</td>
+            <td>{{ song.release_date }}</td>
+            <td>{{ song.release_country }}</td>
+            <td>{{ song.mood }}</td>
+            <td>{{ song.lyrics }}</td>
+            <td><a href="{% url 'song-update' song.id %}" > Edit </a></td>
+            <td><a href="{% url 'song-delete' song.id %}" > Delete </a></td>
           </tr>
           {% endfor %}
         </tbody>

@@ -38,12 +38,6 @@ def album_index(request):
     albums = Album.objects.filter(user=request.user)
     return render(request, 'albums/index.html', {'albums': albums})
 
-# @login_required
-# def album_detail(request, album_id):
-#     album = Album.objects.get(id=album_id)
-#     album_form = AlbumForm()
-#     return render(request, 'albums/detail.html', {'album': album, 'album_form': album_form})
-
 @login_required
 def album_detail(request, album_id):
     album = Album.objects.get(id=album_id)
@@ -87,7 +81,7 @@ class SongUpdate(LoginRequiredMixin, UpdateView):
     fields = ['title', 'release_date', 'release_country', 'mood', 'lyrics']
     success_url = '/albums/'
 
-class CommentDelete(LoginRequiredMixin,DeleteView):
+class SongDelete(LoginRequiredMixin,DeleteView):
     model = Song
     success_url = '/albums/'
 
