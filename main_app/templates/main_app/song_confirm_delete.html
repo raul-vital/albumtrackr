@@ -1,0 +1,14 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+<div>
+  <h1>Delete Song?</h1>
+</div>
+<form action="" method="post" class="form">
+  {% csrf_token %}
+  <a href="{% url 'song-delete' song.id %}"> Cancel </a>
+  <button type="submit" >Delete Song!</button>
+</form>
+
+{% endblock %}
