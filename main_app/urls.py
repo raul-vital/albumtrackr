@@ -14,6 +14,8 @@ urlpatterns = [
     path('albums/<int:album_id>/add-song/', views.add_song, name='add-song'),
     #Songs routes
     path('songs/create/', views.SongCreate.as_view(), name='song-create'),
+    path('songs/<int:pk>/', views.SongDetail.as_view(), name='song-detail'),
+    path('songs/', views.SongList.as_view(), name='song-index'),
 
     
 ]

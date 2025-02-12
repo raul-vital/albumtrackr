@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Album, Song
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView 
 from .forms import AlbumForm, SongForm
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import login
@@ -83,3 +84,9 @@ class AlbumDelete(LoginRequiredMixin, DeleteView):
 class SongCreate(CreateView):
     model = Song
     fields = '__all__'
+
+class SongList(ListView):
+    model = Song
+
+class SongDetail(DetailView):
+    model = Song
