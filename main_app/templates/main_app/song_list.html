@@ -1,0 +1,29 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/songs/song-index.css' %}" />
+{% endblock %} 
+{% block content %}
+
+<section class="page-header">
+  <h1>All Songs</h1>
+
+</section>
+
+<section class="card-container">
+  {% for toy in song_list %}
+  </div>
+      <a href="{% url 'song-detail' song.id %}">
+        <div class="card-content">
+          <h2>{{ song.title }}</h2>
+          <p>{{ song.release_date }}</p>
+          <p>{{ song.release_country }}</p>
+          <p>{{ song.mood }}</p>
+          <p>{{ song.lyrics }}</p>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
