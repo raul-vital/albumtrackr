@@ -13,6 +13,8 @@ urlpatterns = [
     path('albums/<int:pk>/delete', views.AlbumDelete.as_view(), name='album-delete'),
     path('albums/<int:album_id>/add-song/', views.add_song, name='add-song'),
     #Songs routes
+    path('songs/<int:pk>/update/', views.SongUpdate.as_view(), name='song-update'),
+    path('songs/<int:pk>/delete/', views.SongDelete.as_view(), name='song-delete')
   
     
 ]
