@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Album
+from .models import Album, Song
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import AlbumForm, SongForm
 from django.contrib.auth.views import LoginView
@@ -64,8 +64,6 @@ def add_song(request, album_id):
     return redirect('album-detail', album_id=album_id)
 
 
-
-
 class AlbumCreate(LoginRequiredMixin, CreateView):
     model = Album
     form_class = AlbumForm
@@ -74,10 +72,6 @@ class AlbumCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user 
         return super().form_valid(form)
     
-
-
-
-
 class AlbumUpdate(LoginRequiredMixin, UpdateView):
     model = Album
     form_class = AlbumForm
@@ -85,3 +79,7 @@ class AlbumUpdate(LoginRequiredMixin, UpdateView):
 class AlbumDelete(LoginRequiredMixin, DeleteView):
     model = Album
     success_url = '/albums/'
+
+class SongCreate(CreateView):
+    model = Song
+    fields = '__all__'

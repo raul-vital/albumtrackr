@@ -4,6 +4,7 @@
       {% comment %} <li><a href="{% url 'home' %}">Home</a></li> {% endcomment %}
       <li><a href="{% url 'album-index'%}">All Albums</a></li>
       <li><a href="{% url 'album-create'%}">Add Album</a></li>
+      <li><a href="{% url 'song-create' %}">Add a Song</a></li>
       <li>
         <form id="logout-form" method="post" action="{% url 'logout' %}">
           {% csrf_token %}
