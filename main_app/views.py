@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Album
+from .models import Album, Song
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import AlbumForm, SongForm
 from django.contrib.auth.views import LoginView
