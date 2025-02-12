@@ -39,6 +39,8 @@
           <th>Release Country</th>
           <th>Mood</th>
           <th>Lyrics</th>
+          <td><a href="{% url 'song-update' song.id %}" > Edit </a></td>
+          <td><a href="{% url 'song-delete' song.id %}" > Delete </a></td>
         </tr>
       </thead>
       <tbody>

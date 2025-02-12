@@ -24,6 +24,7 @@ class Song(models.Model):
     release_country = models.CharField(max_length=100)
     mood = models.CharField(max_length=100)
     lyrics = models.TextField()
+    album = models.ForeignKey(Album, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"Song by {self.album.artist} on {self.album.title}"  
