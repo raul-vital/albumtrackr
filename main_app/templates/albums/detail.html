@@ -48,7 +48,12 @@
             <td>{{ song.release_date }}</td>
             <td>{{ song.release_country }}</td>
             <td>{{ song.mood }}</td>
-            <td>{{ song.lyrics }}</td>
+            <td>
+              <details>
+                <summary>Show</summary>
+                <div>{{ song.lyrics }}</div>
+              </details>
+            </td>
             <td><a href="{% url 'song-update' song.id %}" > Edit </a></td>
             <td><a href="{% url 'song-delete' song.id %}" > Delete </a></td>
           </tr>
