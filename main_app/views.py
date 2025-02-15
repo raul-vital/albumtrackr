@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Album, Song
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import AlbumForm, SongForm
@@ -45,9 +45,8 @@ def album_detail(request, album_id):
     return render(request, 'albums/detail.html', {'album': album, 'song_form': song_form})
 
 def song_detail(request, song_id):
-    song = Song.objects.get(id=song_id)
-    comment_form = CommentForm()
-    return render(request, 'songs/detail.html', {'song': song, 'album_form': slbum_form})
+    song = get_object_or_404(Song, id=song_id)
+    return render(request, 'songs/detail.html', {'song': song})
     
 def add_song(request, album_id):
     form = SongForm(request.POST)
@@ -83,5 +82,7 @@ class SongUpdate(LoginRequiredMixin, UpdateView):
 
 class SongDelete(LoginRequiredMixin,DeleteView):
     model = Song
-    success_url = '/albums/'
+    def get_success_url(self):
+        song = self.object 
+        return f'/albums/{song.album.id}/'
 
