@@ -14,7 +14,6 @@
   </div>
 </section>
 
-
 {% comment %} ******************************** Song Form ************************************* {% endcomment %}
 <div class="song-container">
   <section class="song">
@@ -34,7 +33,6 @@
       <button type="submit" class="btn submit">Add Song</button>
     </form>
 
- 
 {% comment %} ******************************** Song detail ************************************* {% endcomment %}   
 <table>
   <thead>
@@ -54,42 +52,5 @@
     {% endfor %}
   </tbody>
 </table>
-
-
-
-
-
-
-    {% comment %} <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Release Date</th>
-          <th>Release Country</th>
-          <th>Mood</th>
-          <th>Lyrics</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for song in album.song_set.all %}
-          <tr>
-            <td>{{ song.title }}</td>
-            <td>{{ song.release_date }}</td>
-            <td>{{ song.release_country }}</td>
-            <td>{{ song.mood }}</td>
-            <td>
-              <details>
-                <summary>Show</summary>
-                <div>{{ song.lyrics }}</div>
-              </details>
-            </td>
-            <td><a href="{% url 'song-update' song.id %}" > Edit </a></td>
-            <td><a href="{% url 'song-delete' song.id %}" > Delete </a></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    </section>
-  </div> {% endcomment %}
   
   {% endblock %}
