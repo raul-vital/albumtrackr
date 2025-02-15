@@ -15,6 +15,7 @@ from django.views.generic import TemplateView
 from .forms import ApiForm
 from .models import Api
 import requests
+from django import template
 
 
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
@@ -23,6 +24,10 @@ YOUTUBE_SEARCH_URL = os.getenv("YOUTUBE_SEARCH_URL")
 # Create your views here.
 class Home(LoginView):
     template_name = 'home.html'
+
+
+
+
 
 def api_view(request):
     """Handles form submission and fetches YouTube videos"""
@@ -57,7 +62,7 @@ def api_view(request):
         if "items" in data and data["items"]:
             video_id = data["items"][0]["id"]["videoId"]
             videos[entry.title] = video_id
-
+    print(videos)
     return render(request, 'api.html', {'form': form, 'api_entries': api_entries, 'videos': videos})
 
 

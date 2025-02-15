@@ -28,7 +28,7 @@
                     {% if entry.title in videos %}
                         <br>
                         <iframe width="560" height="315"
-                                src="https://www.youtube.com/embed/{{ videos.entry.title }}"
+                                src="https://www.youtube.com/embed/{{ videos|get:entry.title }}"
                                 frameborder="0" allowfullscreen>
                         </iframe>
                     {% else %}
