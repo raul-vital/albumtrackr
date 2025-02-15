@@ -7,7 +7,7 @@
 </div>
 <form action="" method="post" class="form">
   {% csrf_token %}
-  <a href="{% url 'album-detail' song.album.id %}" class="btn">Cancel</a>
+  <a href="{% url 'song-detail' song.id %}" class="btn">Cancel</a>
   <button type="submit" >Delete Song!</button>
 </form>
 
