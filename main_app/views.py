@@ -46,8 +46,9 @@ def album_detail(request, album_id):
 
 def song_detail(request, song_id):
     song = get_object_or_404(Song, id=song_id)
-    return render(request, 'songs/detail.html', {'song': song})
-    
+    return render(request, 'songs/song_detail.html', {'song': song})
+
+
 def add_song(request, album_id):
     form = SongForm(request.POST)
     if form.is_valid():
@@ -57,8 +58,6 @@ def add_song(request, album_id):
     return redirect('album-detail', album_id=album_id)
 
 
-
-
 class AlbumCreate(LoginRequiredMixin, CreateView):
     model = Album
     form_class = AlbumForm
@@ -66,7 +65,6 @@ class AlbumCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user 
         return super().form_valid(form)
     
-
 class AlbumUpdate(LoginRequiredMixin, UpdateView):
     model = Album
     form_class = AlbumForm
