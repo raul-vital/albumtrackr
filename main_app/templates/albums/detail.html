@@ -14,6 +14,8 @@
   </div>
 </section>
 
+
+{% comment %} ******************************** Song Form ************************************* {% endcomment %}
 <div class="song-container">
   <section class="song">
     <div class="subsection-title">
@@ -31,7 +33,34 @@
       {{ song_form.as_p }}
       <button type="submit" class="btn submit">Add Song</button>
     </form>
-    <table>
+
+ 
+{% comment %} ******************************** Song detail ************************************* {% endcomment %}   
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Release Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for song in album.song_set.all %}
+      <tr>
+        <td>
+          ★ <a href="{% url 'song-detail' song.id %}">{{ song.title }}</a>
+        </td>
+        <td>{{ song.release_date }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+
+
+    {% comment %} <table>
       <thead>
         <tr>
           <th>Title</th>
@@ -61,6 +90,6 @@
         </tbody>
       </table>
     </section>
-  </div>
+  </div> {% endcomment %}
   
   {% endblock %}
