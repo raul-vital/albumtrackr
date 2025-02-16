@@ -16,8 +16,9 @@ load_dotenv()
 
 import os
 
-YOUTUBE_API_KEYS = [key.strip() for key in os.getenv("YOUTUBE_API_KEYS", "").split(",") if key.strip()]
+YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
 YOUTUBE_SEARCH_URL = os.getenv('YOUTUBE_SEARCH_URL')
+print("Loaded API Key is:", YOUTUBE_API_KEY)
 
 GENIUS_ACCESS_TOKEN = os.getenv("GENIUS_ACCESS_TOKEN")
 GENIUS_CLIENT_ID= os.getenv("GENIUS_CLIENT_ID")

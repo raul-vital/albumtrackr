@@ -14,11 +14,7 @@ import requests
 from django.conf import settings
 import os
 from bs4 import BeautifulSoup
-from django.core.cache import cache
-import hashlib
-import random 
 
-YOUTUBE_API_KEYS = [key.strip() for key in os.getenv("YOUTUBE_API_KEYS", "").split(",") if key.strip()]
 YOUTUBE_SEARCH_URL = os.getenv('YOUTUBE_SEARCH_URL')
 GENIUS_ACCESS_TOKEN = os.getenv("GENIUS_ACCESS_TOKEN")
 GENIUS_API_URL = "https://api.genius.com/"
@@ -57,43 +53,26 @@ def album_detail(request, album_id):
 
 # ************************************************
 def get_youtube_video(song_title, artist):
-    cache_key = hashlib.md5(f"youtube_{song_title}_{artist}".encode()).hexdigest()
-    cached_url = cache.get(cache_key)
-    
-    if cached_url:
-        print(f"✅ Cache hit: {cached_url}")
-        return cached_url
+    api_key = os.getenv('YOUTUBE_API_KEY')
+    search_query = f"{song_title} {artist} official music video"
 
-    random.shuffle(YOUTUBE_API_KEYS)  
-    for api_key in YOUTUBE_API_KEYS:
-        print(f"🔄 Trying API Key: {api_key[:10]}...") 
-        params = {
-            "part": "snippet",
-            "q": f"{song_title} {artist} official music video",
-            "key": api_key,
-            "maxResults": 1,
-            "type": "video"
-        }
+    params = {
+        "part": "snippet",
+        "q": search_query,
+        "key": api_key,
+        "maxResults": 1,
+        "type": "video"
+    }
 
-        response = requests.get(YOUTUBE_SEARCH_URL, params=params)
-        data = response.json()
+    response = requests.get(YOUTUBE_SEARCH_URL, params=params)
+    data = response.json()
+    print(data)
 
-        if "items" in data and len(data["items"]) > 0:
-            video_id = data["items"][0]["id"]["videoId"]
-            video_url = f"https://www.youtube.com/embed/{video_id}"
-            cache.set(cache_key, video_url, timeout=86400) 
-            print(f"✅ Found video: {video_url}")
-            return video_url
-        elif "error" in data:
-            error_reason = data["error"]["errors"][0]["reason"]
-            print(f"⚠️ API Error: {error_reason} (Key: {api_key[:10]}...)")
-
-            if error_reason == "quotaExceeded":
-                print(f"❌ Quota exceeded for key: {api_key}, trying next key...")
-                continue 
-
-    print("❌ No video found.")
-
+    if "items" in data and len(data["items"]) > 0:
+        video_id = data["items"][0]["id"]["videoId"]
+        print(video_id)
+        return f"https://www.youtube.com/embed/{video_id}"
+      
     return None
 
 # ************************************************
