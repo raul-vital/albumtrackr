@@ -19,7 +19,6 @@ YOUTUBE_SEARCH_URL = os.getenv('YOUTUBE_SEARCH_URL')
 GENIUS_ACCESS_TOKEN = os.getenv("GENIUS_ACCESS_TOKEN")
 GENIUS_API_URL = "https://api.genius.com/"
 
-
 class Home(LoginView):
     template_name = 'home.html'
 
