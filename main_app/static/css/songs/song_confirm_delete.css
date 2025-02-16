@@ -102,6 +102,7 @@ hr{
     height:auto;
     display:inline-block;
 }
+
 /* queries for tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
     section {
