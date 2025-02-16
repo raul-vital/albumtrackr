@@ -32,6 +32,16 @@
             </tr>
         </tbody>
         </table>
+
+        {% if youtube_url %}
+            <h2>Watch on YouTube</h2>
+            <iframe width="560" height="315" src="{{ youtube_url }}" frameborder="0" allowfullscreen></iframe>
+        {% else %}
+            <p>No video found.</p>
+        {% endif %}
+
+
+
         <br>
         <a href="{% url 'album-detail' song.album.id %}" class="btn">Back to Album</a>
     </div>
