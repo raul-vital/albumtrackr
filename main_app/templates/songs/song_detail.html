@@ -53,6 +53,15 @@
             <p>No video found.</p>
         {% endif %}
 {% comment %} ******************************************************************* {% endcomment %}
+        <h2>Lyrics</h2>
+            {% if lyrics %}
+                <details>
+                    <summary>Show Lyrics</summary>
+                    <pre>{{ lyrics }}</pre>  
+                </details>
+            {% else %}
+                <p>Lyrics not found.</p>
+            {% endif %}
 
         <br>
         <a href="{% url 'album-detail' song.album.id %}" class="btn">Back to Album</a>

@@ -13,10 +13,13 @@ from main_app.authentication import EmailOrUsernameModelBackend
 import requests
 from django.conf import settings
 import os
+from bs4 import BeautifulSoup
 
 YOUTUBE_SEARCH_URL = os.getenv('YOUTUBE_SEARCH_URL')
+GENIUS_ACCESS_TOKEN = os.getenv("GENIUS_ACCESS_TOKEN")
+GENIUS_API_URL = "https://api.genius.com/"
 
-# Create your views here.
+
 class Home(LoginView):
     template_name = 'home.html'
 
@@ -74,13 +77,16 @@ def get_youtube_video(song_title, artist):
     return None
 
 # ************************************************
+@login_required
 def song_detail(request, song_id):
     # debug_api_key() 
     song = get_object_or_404(Song, id=song_id)
     youtube_url = get_youtube_video(song.title, song.album.artist)
+    lyrics = get_lyrics_from_genius(song.title, song.album.artist)
     print(youtube_url)
-    return render(request, 'songs/song_detail.html', {'song': song, 'youtube_url': youtube_url})
+    return render(request, 'songs/song_detail.html', {'song': song, 'youtube_url': youtube_url, 'lyrics': lyrics})
 
+@login_required
 def add_song(request, album_id):
     form = SongForm(request.POST)
     if form.is_valid():
@@ -88,7 +94,6 @@ def add_song(request, album_id):
         new_song.album_id = album_id
         new_song.save()
     return redirect('album-detail', album_id=album_id)
-
 
 class AlbumCreate(LoginRequiredMixin, CreateView):
     model = Album
@@ -118,3 +123,23 @@ class SongDelete(LoginRequiredMixin,DeleteView):
         song = self.object 
         return f'/albums/{song.album.id}/'
 
+# ************************************************
+def get_lyrics_from_genius(song_title, artist):
+    headers = {"Authorization": f"Bearer {GENIUS_ACCESS_TOKEN}"}
+    params = {"q": f"{song_title} {artist}"}
+
+    response = requests.get(f"{GENIUS_API_URL}search", headers=headers, params=params).json()
+
+    song_url = f"https://genius.com{response.get('response', {}).get('hits', [{}])[0].get('result', {}).get('path', '')}"
+    
+    return scrape_lyrics(song_url) if song_url else "Lyrics not found."
+
+def scrape_lyrics(url):
+    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
+    if response.status_code != 200:
+        return "Lyrics not available."
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    lyrics = "\n".join(div.get_text(separator="\n") for div in soup.select("div[data-lyrics-container='true']"))
+    
+    return lyrics.strip() or "Lyrics not found."
