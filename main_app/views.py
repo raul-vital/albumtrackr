@@ -44,11 +44,12 @@ def album_detail(request, album_id):
     song_form = SongForm()
     return render(request, 'albums/detail.html', {'album': album, 'song_form': song_form})
 
+@login_required
 def song_detail(request, song_id):
     song = get_object_or_404(Song, id=song_id)
     return render(request, 'songs/song_detail.html', {'song': song})
 
-
+@login_required
 def add_song(request, album_id):
     form = SongForm(request.POST)
     if form.is_valid():
