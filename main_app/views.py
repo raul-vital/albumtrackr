@@ -10,6 +10,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CustomLoginForm
 from main_app.authentication import EmailOrUsernameModelBackend 
+import requests
+from django.conf import settings
+import os
+
+YOUTUBE_SEARCH_URL = os.getenv('YOUTUBE_SEARCH_URL')
 
 # Create your views here.
 class Home(LoginView):
@@ -44,12 +49,38 @@ def album_detail(request, album_id):
     song_form = SongForm()
     return render(request, 'albums/detail.html', {'album': album, 'song_form': song_form})
 
-@login_required
-def song_detail(request, song_id):
-    song = get_object_or_404(Song, id=song_id)
-    return render(request, 'songs/song_detail.html', {'song': song})
+# ************************************************
+def get_youtube_video(song_title, artist):
+    api_key = os.getenv('YOUTUBE_API_KEY')
+    search_query = f"{song_title} {artist} official music video"
 
-@login_required
+    params = {
+        "part": "snippet",
+        "q": search_query,
+        "key": api_key,
+        "maxResults": 1,
+        "type": "video"
+    }
+
+    response = requests.get(YOUTUBE_SEARCH_URL, params=params)
+    data = response.json()
+    print(data)
+
+    if "items" in data and len(data["items"]) > 0:
+        video_id = data["items"][0]["id"]["videoId"]
+        print(video_id)
+        return f"https://www.youtube.com/embed/{video_id}"
+      
+    return None
+
+# ************************************************
+def song_detail(request, song_id):
+    # debug_api_key() 
+    song = get_object_or_404(Song, id=song_id)
+    youtube_url = get_youtube_video(song.title, song.album.artist)
+    print(youtube_url)
+    return render(request, 'songs/song_detail.html', {'song': song, 'youtube_url': youtube_url})
+
 def add_song(request, album_id):
     form = SongForm(request.POST)
     if form.is_valid():

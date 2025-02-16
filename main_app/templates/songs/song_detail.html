@@ -32,6 +32,28 @@
             </tr>
         </tbody>
         </table>
+{% comment %} ******************************************************************* {% endcomment %}
+        {% if youtube_url %}
+            <h2>Watch on YouTube</h2>
+            <iframe width="560" height="315" src="{{ youtube_url }}" frameborder="0" allowfullscreen></iframe>
+            <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                var iframe = document.getElementById("yt-video");
+
+                iframe.onerror = function () {
+                    window.location.href = "{{ youtube_url|slice:'30:' }}";
+                };
+            });
+            </script>
+
+            <p><a href="https://www.youtube.com/watch?v={{ youtube_url|slice:'30:' }}" target="_blank">
+                Click here if video does not play
+            </a></p>
+        {% else %}
+            <p>No video found.</p>
+        {% endif %}
+{% comment %} ******************************************************************* {% endcomment %}
+
         <br>
         <a href="{% url 'album-detail' song.album.id %}" class="btn">Back to Album</a>
     </div>
