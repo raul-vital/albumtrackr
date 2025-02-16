@@ -1,13 +1,23 @@
 {% extends 'base.html' %}  
 {% load static %} 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/albums/album_confirm_delete.css' %}" />
 
-<h2>Are you sure you want to delete the album"{{ album.title }}"?</h2>
+<section class="section-container">
+  <div class="div-container">
+    <img src="{% static 'images/delete-warning.png' %}" alt="exclamation warning" class="warning-img"/>
+    <p class="p-text">Deleting "{{album.title}}"</p>
+    <hr>
+    <h2>Are you sure?</h2>
+    <p>You won't be able to revert this!</p>
+    <hr>
 
 <form action="" method="post" class="form">
   {% csrf_token %}
-  <a href="{% url 'album-detail' album.id %}">Cancel</a>
-  <button type="submit">Yes, I'm sure!</button>
+  <button type="button" class="btn-1"><a href="{% url 'album-detail' album.id %}">CANCEL</a></button>
+  <div class="divider"></div>
+  <button type="submit" class="btn-2">DELETE</button>
 </form>
-
+</div>
+</section>
 {% endblock %}
