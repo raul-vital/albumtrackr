@@ -21,7 +21,7 @@ class AlbumForm(forms.ModelForm):
 class SongForm(forms.ModelForm):
     class Meta:
         model = Song
-        fields = ['title', 'release_date', 'release_country', 'mood', 'lyrics']
+        fields = ['title', 'release_date', 'release_country', 'mood']
         widgets = {
                 'release_date': forms.DateInput(
                 format=('%Y-%m-%d'),
