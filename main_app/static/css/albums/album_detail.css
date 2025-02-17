@@ -140,7 +140,6 @@ form input:focus, form select:focus {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    /* box-shadow: 0 0 10px #00ff99, 0 0 20px #00ccff, 0 0 30px #ff00ff; */
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
