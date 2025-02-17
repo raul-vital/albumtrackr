@@ -10,9 +10,10 @@
     <p>Genre: {{album.genres}}</p>
     <p>Release Date: {{ album.release_date }}</p>
     <div>
-      <a href="{% url 'album-update' album.id %}" style="color: white;">Edit</a>
-      <a href="{% url 'album-delete' album.id %}" style="color: white;">Delete</a>
+      <a href="{% url 'album-update' album.id %}" class="edit-delete-links">Edit</a>
+      <a href="{% url 'album-delete' album.id %}" class="edit-delete-links">Delete</a>
     </div>
+    
   </div>
 </section>
 
