@@ -1,6 +1,8 @@
 {% extends 'base.html' %} 
 {% load static %} 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/albums/album_detail.css' %}" />
+
 <section>
   <div>
     <h2>{{ album.title }}
@@ -8,9 +10,10 @@
     <p>Genre: {{album.genres}}</p>
     <p>Release Date: {{ album.release_date }}</p>
     <div>
-        <a href="{% url 'album-update' album.id %}"> Edit </a>
-        <a href="{% url 'album-delete' album.id %}"> Delete </a>
+      <a href="{% url 'album-update' album.id %}" class="edit-delete-links">Edit</a>
+      <a href="{% url 'album-delete' album.id %}" class="edit-delete-links">Delete</a>
     </div>
+    
   </div>
 </section>
 
@@ -45,7 +48,7 @@
     {% for song in album.song_set.all %}
       <tr>
         <td>
-          ★ <a href="{% url 'song-detail' song.id %}">{{ song.title }}</a>
+          ★ <a href="{% url 'song-detail' song.id %}" style="color: white;">{{ song.title }}</a>
         </td>
         <td>{{ song.release_date }}</td>
       </tr>

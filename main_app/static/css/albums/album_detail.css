@@ -1,0 +1,227 @@
+.album-detail-container {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.album-detail-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 50px rgba(255, 0, 255, 0.6);
+}
+
+.album-detail-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0.3;
+    animation: neonRotate 15s infinite linear;
+    z-index: 0;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.album-detail-container * {
+    position: relative;
+    z-index: 1;
+}
+
+.album-detail-container h2 {
+    /* color: #ff00ff; */
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+.album-detail-container a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.album-detail-container a:hover {
+    color: black;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 25px;
+    border-radius: 16px;
+    padding: 20px;
+    background: rgba(50, 50, 50, 0.8);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+h2, h3 {
+    /* color: #ff00ff; */
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+p {
+    color: #fff;
+    font-size: 1rem;
+}
+
+/* Song Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th, table td {
+    border: 1px solid #ddd;
+    color: white;
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f4f4f4;
+    color: black;
+}
+
+table td a {
+    color: #00ffff;
+    text-decoration: none;
+}
+
+table td a:hover {
+    /* color: #ff00ff; */
+}
+
+/* Form Section */
+form {
+    background: linear-gradient(#120018, #e66465, #120018);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+}
+
+form input, form select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form select:focus {
+    border-color: #5dade2;
+    outline: none;
+}
+
+/* Neon Techy Style for Edit and Delete Text */
+.edit-delete-links {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
+    text-decoration: none; 
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.edit-delete-links:hover {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    box-shadow: 0 0 20px #00ff99, 0 0 40px #00ccff, 0 0 60px #ff00ff;
+    transform: scale(1.05); 
+}
+
+/* Neon Techy Style for Add Song button */
+.submit {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+   
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.submit:hover {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    box-shadow: 0 0 20px #00ff99, 0 0 40px #00ccff, 0 0 60px #ff00ff;
+    transform: scale(1.05); 
+}
+
+
+.submit-button {
+    background-color: #5dade2;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #3498db;
+}
+
+/* Button Styles */
+.album-detail-container a {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+.album-detail-container a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+    .album-detail-container {
+        padding: 1.5rem;
+    }
+
+    form {
+        padding: 1.5rem;
+    }
+
+    table th, table td {
+        font-size: 0.875rem;
+    }
+
+    .submit-button {
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .album-detail-container {
+        padding: 1rem;
+    }
+
+    form {
+        padding: 1rem;
+    }
+
+    table th, table td {
+        font-size: 0.75rem;
+    }
+
+    .submit-button {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+}
