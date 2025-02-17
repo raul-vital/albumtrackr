@@ -1,64 +1,63 @@
-
-{% extends 'base.html' %} 
-{% load static %} 
+{% extends 'base.html' %}
+{% load static %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/songs/song_detail.css' %}" />
 
-<div class="song-detail">    
+<div class="song-detail-container">
+  <div class="song-header">
     <h1>🎵 {{ song.title }}</h1>
-    <table>
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Release Date</th>
-            <th>Release Country</th>
-            <th>Mood</th>
+    <hr>
+  </div>
 
-        </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>{{ song.title }}</td>
-            <td>{{ song.release_date }}</td>
-            <td>{{ song.release_country }}</td>
-            <td>{{ song.mood }}</td>
-            <td><a href="{% url 'song-update' song.id %}">Edit</a></td>
-            <td><a href="{% url 'song-delete' song.id %}">Delete</a></td>
-            </tr>
-        </tbody>
-        </table>
-{% comment %} ******************************************************************* {% endcomment %}
-        {% if youtube_url %}
-            <h2>Watch on YouTube</h2>
-            <iframe width="560" height="315" src="{{ youtube_url }}" frameborder="0" allowfullscreen></iframe>
-            <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                var iframe = document.getElementById("yt-video");
+  <table class="song-info-table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Release Date</th>
+        <th>Release Country</th>
+        <th>Mood</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ song.title }}</td>
+        <td>{{ song.release_date }}</td>
+        <td>{{ song.release_country }}</td>
+        <td>{{ song.mood }}</td>
+        <td>
+          <a href="{% url 'song-update' song.id %}" class="edit-link">Edit</a>
+          <a href="{% url 'song-delete' song.id %}" class="delete-link">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-                iframe.onerror = function () {
-                    window.location.href = "{{ youtube_url|slice:'30:' }}";
-                };
-            });
-            </script>
-
-            <p><a href="https://www.youtube.com/watch?v={{ youtube_url|slice:'30:' }}" target="_blank">
-                Click here if video does not play
-            </a></p>
-        {% else %}
-            <p>No video found.</p>
-        {% endif %}
-{% comment %} ******************************************************************* {% endcomment %}
-        <h2>Lyrics</h2>
-            {% if lyrics %}
-                <details>
-                    <summary>Show Lyrics</summary>
-                    <pre>{{ lyrics }}</pre>  
-                </details>
-            {% else %}
-                <p>Lyrics not found.</p>
-            {% endif %}
-
-        <br>
-        <a href="{% url 'album-detail' song.album.id %}" class="btn">Back to Album</a>
+  {% if youtube_url %}
+    <div class="youtube-section">
+      <h2>Watch on YouTube</h2>
+      <iframe width="560" height="315" src="{{ youtube_url }}" frameborder="0" allowfullscreen></iframe>
+      <p>
+        <a href="https://www.youtube.com/watch?v={{ youtube_url|slice:'30:' }}" target="_blank" class="youtube-fallback-link">Click here if video does not play</a>
+      </p>
     </div>
+  {% else %}
+    <p class="no-video">No video found.</p>
+  {% endif %}
+
+  <div class="lyrics-section">
+    <h2>Lyrics</h2>
+    {% if lyrics %}
+      <details>
+        <summary>Show Lyrics</summary>
+        <pre class="lyrics-text">{{ lyrics }}</pre>
+      </details>
+    {% else %}
+      <p class="no-lyrics">Lyrics not found.</p>
+    {% endif %}
+  </div>
+
+  <a href="{% url 'album-detail' song.album.id %}" class="back-button">Back to Album</a>
+</div>
 
 {% endblock %}
