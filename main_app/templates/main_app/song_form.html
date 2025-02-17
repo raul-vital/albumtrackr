@@ -1,19 +1,29 @@
 {% extends 'base.html' %} 
 {% load static %} 
 {% block content %}
-  <div>
-    {% if object %}
-      <h1>Edit Song</h1>
-    {% else %}
-      <h1>Add a Song</h1>
-    {% endif %}
+<link rel="stylesheet" href="{% static 'css/songs/song-form.css' %}" />
+
+
   </div>
-  <form action="" method="post" autocomplete="off">
+  <div class="form-container">
+   <form action="" method="post" autocomplete="off" class="album-form"><div>
+      <div class="form-header">
+      <img src="{% static 'images/record.png'%}" alt="colorful record" class="record-img">
+      {% if object %}
+         <h1>Editing  "{{ object.title }}"</h1>
+      {% else %}
+         <h1>New Album</h1>
+      {% endif %}
+      <hr>
+  </div>
     {% csrf_token %}
-    <table>
+    <table class="form-fields">
       {{ form.as_table }}
     </table>
-    <button type="submit" >Add!</button>
+    <button type="submit" class="submit-button">Submit</button>
   </form>
+</div>
+
+
 
 {% endblock %}
