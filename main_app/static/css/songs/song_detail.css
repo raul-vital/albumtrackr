@@ -1,0 +1,145 @@
+/* static/css/songs/song_detail.css */
+.song-detail-container {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .song-detail-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 50px rgba(255, 0, 255, 0.6);
+  }
+  
+  .song-detail-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+      from 0deg,
+      #ff00ff,
+      #00ffff,
+      #ff00ff,
+      #00ffff,
+      #ff00ff
+    );
+    opacity: 0.2;
+    animation: neonRotate 15s infinite linear;
+    z-index: 0;
+  }
+  
+  @keyframes neonRotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .song-detail-container * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .song-detail-container h1,
+  .song-detail-container h2 {
+    color: #ff00ff;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+  }
+  
+  .song-detail-container a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  
+  .song-detail-container a:hover {
+    color: black;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+  }
+  
+  
+  .song-header h1 {
+    color: #333;
+  }
+  
+  .song-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .song-info-table th, .song-info-table td {
+    border: 1px solid #ddd;
+    color: white;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .song-info-table th {
+    background-color: #f4f4f4; 
+    color: #9370DB; /* Neon Purple-ish */ 
+  }
+  
+  .edit-link, .delete-link, .youtube-fallback-link {
+    margin-right: 10px;
+    color: #ff00c8;
+    text-decoration: none;
+  }
+  
+  .edit-link:hover, .delete-link:hover, .youtube-fallback-link:hover {
+    text-decoration: underline;
+  }
+  
+  .youtube-section, .lyrics-section {
+    margin-top: 20px;
+    color: white
+  }
+
+  
+  .lyrics-section {
+    margin-top: 20px;
+    color: white;
+}
+
+.lyrics-section h2 { /* If you have a specific heading for the lyrics */
+    color: #b4a0d3; /* Softer purple color instead of bright neon */
+    text-shadow: none; /* Remove the strong neon text-shadow */
+}
+
+.lyrics-text {
+    white-space: pre-wrap;
+    background-color: #9370DB;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: monospace;
+    color: #ddd; /* Softer text color */
+}
+  
+  .no-video, .no-lyrics {
+    color: white
+  }
+  
+  .back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #934caf;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  /* .back-button:hover {
+    background-color: #45a049;
+  } */
+  
