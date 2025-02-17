@@ -99,7 +99,33 @@ p {
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
     transform: scale(1.05); 
 }
-
+.album{
+        background-color: transparent;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.albums-container {
+    display: flex;
+     flex-direction: column;
+     gap: 1.5rem; /* Spacing between albums */
+     justify-content: center;
+   }
+  
+a{
+    text-decoration: none;
+    color: white;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+}
+hr{
+    width: 100%; 
+    display: flex;
+    justify-self:left
+}
 /* Responsive Styling */
 @media (max-width: 768px) {
     .album-card {
