@@ -152,6 +152,9 @@ LOGOUT_REDIRECT_URL = 'home'
 
 
 
+# This is only needed for production when DEBUG=False
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
