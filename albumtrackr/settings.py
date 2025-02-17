@@ -39,7 +39,7 @@ SECRET_KEY = os.environ['SECRET_KEY']
 if not 'ON_HEROKU' in os.environ:
     DEBUG = True
 
-ALLOWED_HOSTS = [*]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
