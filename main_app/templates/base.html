@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}" />
     <link rel="shortcut icon" type="image/png" href="" />
     <title>AlbumTrackr</title>
     {% block head %} 
@@ -25,5 +26,6 @@
       {% block content %} 
       {% endblock %}
      </main>
+     {% include 'main_app/footer.html' %}
   </body>
 </html>
