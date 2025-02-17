@@ -1,23 +1,35 @@
 {% extends 'base.html' %} 
 {% load static %} 
 {% block head %}
-<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+{% comment %} <link rel="stylesheet" href="{% static 'css/form.css' %}" /> {% endcomment %}
+<link rel="stylesheet" href="{% static 'css/sign_up.css' %}" />
+<link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+<script src="{% static 'js/form-validation.js' %}"></script>
 {% endblock %} 
 {% block content %}
 
+<section>
+  {% if error_message %}
+    <p class="red-text">{{ error_message }}</p>
+  {% endif %}
+  <form action="" method="post" class="form-container" autocomplete="off">
+    <h1>Sign Up</h1>
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn submit">Submit!</button>
+  </form>
+  <p >
+    By continuing you agree to AlbumTrackr's Terms and Privacy Policy.
+  </p>
+  <p style="color: white; opacity: 1; text-align: center; margin-top: 7px;">
+    Already have an account? 
+    <a href="{% url 'login' %}" style="color: white; text-decoration: underline;">Log in</a>
+</p>
 
-<div class="page-header">
-  <h1>Sign Up</h1>
-</div>
-{% if error_message %}
-  <p class="red-text">{{ error_message }}</p>
-{% endif %}
-<form action="" method="post" class="form-container" autocomplete="off">
-  {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <button type="submit" class="btn submit">Submit!</button>
-</form>
 
+  
+
+</section>
 {% endblock %}
