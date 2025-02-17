@@ -1,0 +1,122 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #111;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+/* Album Collection Section */
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(50, 50, 50, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+}
+
+/* Title Style */
+h1 {
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Individual Album Card */
+.album-card {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+}
+
+/* Neon Glow Animation */
+.album-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0.3;
+    animation: neonRotate 15s infinite linear;
+    z-index: 0;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.album-card * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Neon Text Styles */
+h2, h4 {
+    color: white; 
+}
+
+p {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.album-card a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.album-card a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+/* Neon Techy Link Style for Edit/Delete */
+.album-card .edit-delete-links {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.album-card .edit-delete-links:hover {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+    transform: scale(1.05); 
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .album-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .album-card {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+}

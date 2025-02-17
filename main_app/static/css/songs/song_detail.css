@@ -45,6 +45,7 @@
     }
 }
    */
+
   .song-detail-container * {
     position: relative;
     z-index: 1;
@@ -87,7 +88,7 @@
   
   .song-info-table th {
     background-color: #f4f4f4; 
-    color: #9370DB; /* Neon Purple-ish */ 
+    color: #9370DB;  
   }
   
   .edit-link, .delete-link, .youtube-fallback-link {
@@ -115,7 +116,7 @@
   }
 
   .lyrics-section h2 { 
-    color: #b4a0d3; /* Softer purple color instead of bright neon */
+    color: #b4a0d3; 
     text-shadow: none; 
 }
   

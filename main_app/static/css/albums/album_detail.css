@@ -22,14 +22,6 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    /* background: conic-gradient(
-        from 0deg,
-        #ff00ff,
-        #00ffff,
-        #ff00ff,
-        #00ffff,
-        #ff00ff
-    ); */
     opacity: 0.3;
     animation: neonRotate 15s infinite linear;
     z-index: 0;
@@ -133,7 +125,7 @@ form input:focus, form select:focus {
 .edit-delete-links {
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     color: white;
-    text-decoration: none; /* Remove underline */
+    text-decoration: none; 
     font-size: 1rem;
     font-weight: bold;
     padding: 6px 14px;
@@ -146,7 +138,7 @@ form input:focus, form select:focus {
 .edit-delete-links:hover {
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     box-shadow: 0 0 20px #00ff99, 0 0 40px #00ccff, 0 0 60px #ff00ff;
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05); 
 }
 
 /* Neon Techy Style for Add Song button */
@@ -159,14 +151,14 @@ form input:focus, form select:focus {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    /* box-shadow: 0 0 10px #00ff99, 0 0 20px #00ccff, 0 0 30px #ff00ff; */
+   
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
 .submit:hover {
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     box-shadow: 0 0 20px #00ff99, 0 0 40px #00ccff, 0 0 60px #ff00ff;
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05); 
 }
 
 
