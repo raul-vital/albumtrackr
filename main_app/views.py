@@ -132,7 +132,7 @@ class AlbumDelete(LoginRequiredMixin, DeleteView):
 
 class SongUpdate(LoginRequiredMixin, UpdateView):
     model = Song
-    fields = ['title', 'release_date', 'release_country', 'mood', 'lyrics']
+    fields = ['title', 'release_date', 'release_country', 'mood']
     def get_success_url(self):
         song = self.object 
         return f'/albums/{song.album.id}/'
