@@ -17,6 +17,9 @@ load_dotenv()
 import os
 import dj_database_url
 import requests
+import hashlib
+import random 
+from bs4 import BeautifulSoup
 
 
 YOUTUBE_API_KEYS = [key.strip() for key in os.getenv("YOUTUBE_API_KEYS", "").split(",") if key.strip()]
