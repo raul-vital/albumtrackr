@@ -16,6 +16,7 @@ load_dotenv()
 
 import os
 import dj_database_url
+import requests
 
 
 YOUTUBE_API_KEYS = [key.strip() for key in os.getenv("YOUTUBE_API_KEYS", "").split(",") if key.strip()]
