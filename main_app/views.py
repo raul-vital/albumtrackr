@@ -142,6 +142,16 @@ class SongDelete(LoginRequiredMixin,DeleteView):
         return f'/albums/{song.album.id}/'
 
 
+def scrape_lyrics(url):
+    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
+    if response.status_code != 200:
+        return "Lyrics not available."
+
+    soup = BeautifulSoup(response.text, "html.parser")
+    lyrics = "\n".join(div.get_text(separator="\n") for div in soup.select("div[data-lyrics-container='true']"))
+    
+    return lyrics.strip() or "Lyrics not found."
+
 def get_lyrics_from_genius(song_title, artist):
     if not GENIUS_API_URL:
         print("⚠️ Error: GENIUS_API_URL is not set.")
@@ -162,7 +172,7 @@ def get_lyrics_from_genius(song_title, artist):
             return "Lyrics not found."
 
         song_url = f"https://genius.com{hits[0]['result']['path']}"
-        return hits
+        return scrape_lyrics(song_url)
 
     except (requests.exceptions.RequestException, IndexError, KeyError) as e:
         print(f"⚠️ Genius API error: {e}")
