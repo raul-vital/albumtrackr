@@ -53,7 +53,7 @@ def album_detail(request, album_id):
     song_form = SongForm()
     return render(request, 'albums/detail.html', {'album': album, 'song_form': song_form})
 
-# ************************************************
+
 def get_youtube_video(song_title, artist):
     cache_key = hashlib.md5(f"youtube_{song_title}_{artist}".encode()).hexdigest()
     cached_url = cache.get(cache_key)
@@ -94,7 +94,7 @@ def get_youtube_video(song_title, artist):
 
     return None
 
-# ************************************************
+
 @login_required
 def song_detail(request, song_id):
     # debug_api_key() 
@@ -141,7 +141,7 @@ class SongDelete(LoginRequiredMixin,DeleteView):
         song = self.object 
         return f'/albums/{song.album.id}/'
 
-# ************************************************
+
 def get_lyrics_from_genius(song_title, artist):
     headers = {"Authorization": f"Bearer {GENIUS_ACCESS_TOKEN}"}
     params = {"q": f"{song_title} {artist}"}
