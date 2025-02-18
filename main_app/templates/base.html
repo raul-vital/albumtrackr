@@ -20,12 +20,12 @@
     <header>
       {% include 'partials/navbar.html' %}  
     </header>
-
-
-    <main>
-      {% block content %} 
-      {% endblock %}
-     </main>
-     {% include 'main_app/footer.html' %}
+    <div class="content">
+      <main>
+        {% block content %} 
+        {% endblock %}
+      </main>
+    </div>
+    {% include 'main_app/footer.html' %}
   </body>
-</html>
+  </html>
