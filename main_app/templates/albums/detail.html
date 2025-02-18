@@ -1,0 +1,59 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/albums/album_detail.css' %}" />
+
+<section>
+  <div>
+    <h1>{{ album.title|title }}</h1>
+    <h4><i>Artist: {{ album.artist|title }}</i></h4>
+    <p>Genre: {{album.genres|title }}</p>
+    <p>Release Date: {{ album.release_date }}</p>
+    <div>
+      <a href="{% url 'album-update' album.id %}" class="edit-delete-links">Edit</a>
+      <a href="{% url 'album-delete' album.id %}" class="edit-delete-links">Delete</a>
+    </div>
+    
+  </div>
+</section>
+
+
+<div class="song-container">
+  <section class="song">
+    <div class="subsection-title">
+    </div>
+
+    <h2>Add a Song</h2>
+    <form 
+      action="{% url 'add-song' album.id %}" 
+      method="POST" 
+      class="subsection-content" 
+      autocomplete="off"
+      >
+      {% csrf_token %} 
+      {{ song_form.as_p }}
+      <button type="submit" class="btn submit">Add Song</button>
+    </form>
+
+
+<h2>Songs</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Release Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for song in album.song_set.all %}
+      <tr>
+        <td>
+          ★ <a href="{% url 'song-detail' song.id %}" style="color: white;">{{ song.title|title }}</a>
+        </td>
+        <td>{{ song.release_date }}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+  
+  {% endblock %}

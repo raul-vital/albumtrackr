@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/albums/album_form.css' %}" />
+<div class="form-container">
+<form action="" method="post" class="album-form">
+  <div class="form-header">
+    <img src="{% static 'images/record.png'%}" alt="colorful record" class="record-img">
+    {% if object %}
+       <h1>Editing  "{{ object.title }}"</h1>
+    {% else %}
+       <h1>New Album</h1>
+    {% endif %}
+    <hr>
+</div>
+  {% csrf_token %}
+  <table class="form-fields">
+    {{ form.as_table }}
+  </table>
+  <button type="submit" class="submit-button">Submit</button>
+</form>
+</div>
+
+{% endblock %}

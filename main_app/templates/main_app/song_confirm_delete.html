@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/songs/song_confirm_delete.css' %}" />
+
+<section class="section-container">
+<div class="div-container">
+  <img src="{% static 'images/delete-warning.png' %}" alt="exclamation warning" class="warning-img"/>
+  <p class="p-text">Deleting "{{song.title}}"</p>
+    <hr>
+    <h2>Are you sure?</h2>
+    <p>You won't be able to revert this!</p>
+    <hr>
+<form action="" method="post" class="form">
+  {% csrf_token %}
+  <button type="button" class="btn-1"><a href="{% url 'song-detail' song.id %}">CANCEL</a></button>
+  <div class="divider"></div>
+  <button type="submit" class="btn-2">DELETE</button>
+</form>
+</div>
+</section
+
+{% endblock %}

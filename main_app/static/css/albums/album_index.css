@@ -1,0 +1,160 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #120018;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(50, 50, 50, 0.7);
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+}
+
+h1 {
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+main {
+    padding-bottom: 200px;
+}
+
+.album-card {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.album-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+}
+
+.album-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0.3;
+    animation: neonRotate 15s infinite linear;
+    z-index: 0;
+    clip-path: circle(50% at 50% 50%);
+}
+
+.album-card * {
+    position: relative;
+    z-index: 1;
+}
+
+h2, h4 {
+    color: white; 
+}
+h2 {
+    font-size: 1.8rem;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+    display: inline-block;
+    font-weight: bold !important; 
+    color: white !important; 
+    text-align: left !important;
+    margin-bottom: 10px !important;
+    text-transform: capitalize;
+}
+
+h2:hover {
+    color: rgb(165, 8, 201) !important; 
+    text-shadow: 0 0 10px rgba(255, 26, 26, 0.8), 
+                 0 0 20px rgba(255, 0, 0, 0.6), 
+                 0 0 30px rgba(225, 35, 218, 0.531); 
+    transform: scale(1.02);
+    font-weight: 700;
+}
+
+
+p {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.album-card a {
+    color: #00ffff;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.album-card a:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+.album-card .edit-delete-links {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.album-card .edit-delete-links:hover {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
+    transform: scale(1.05); 
+}
+.album{
+        background-color: transparent;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        width: 300px;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.albums-container {
+    display: flex;
+     flex-direction: column;
+     gap: 1.5rem; 
+     justify-content: center;
+   }
+  
+
+hr{
+    width: 100%; 
+    display: flex;
+    justify-self:left
+}
+
+@media (max-width: 768px) {
+    .album-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .album-card {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+}

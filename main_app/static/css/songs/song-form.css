@@ -1,0 +1,151 @@
+.form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+  .form-header h1 {
+    font-size: 2rem; 
+    font-weight: 600; 
+    color: white; 
+    text-align: center;
+    margin-bottom: 1.5rem;
+    text-decoration: solid;
+    text-transform: uppercase;
+  }
+  .album-form {
+    width: 500px;
+    margin: 0 auto;
+    padding: 60px;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    background: linear-gradient(#120018,#e66465,#120018);
+   
+  }
+  
+  .form-fields label {
+    color: white;
+    display: block;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+  .form-fields input[type="text"],
+  input[type="date"],
+  .form-fields select {
+    width: 300px;
+    padding: 0.75rem;
+
+    border: 1px solid #ddd;
+    border-radius: 11px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-fields input[type="text"]:focus,
+  .form-fields select:focus {
+    border-color: #5dade2;
+    outline: none;
+  }
+
+  input[type="date"]:hover{
+    border-color: #5dade2;
+
+  }
+  
+  .submit-button {
+    background-color: #5dade2;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    justify-content: right;
+  }
+  
+  .submit-button:hover {
+    background-color: #3498db;
+  }
+  img{
+    display: flex;
+    align-items: center;
+  }
+  .record-img{
+    padding-left: 50px;
+    width: 80%;
+    
+  }
+  hr{
+    opacity: 10%;
+    width: 100%;
+  }
+
+
+  /* queries for tablets */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 1.5rem;
+    }
+
+    .form-header h1 {
+        font-size: 1.75rem; 
+    }
+
+    .album-form {
+        padding: 1.5rem; 
+    }
+
+    .form-fields input[type="text"],
+    input[type="date"],
+    .form-fields select {
+        font-size: 0.9rem; 
+    }
+
+    .submit-button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem; 
+    }
+
+    .record-img {
+        max-width: 300px; 
+    }
+}
+
+/*queries for phones */
+@media (max-width: 480px) {
+    .form-container {
+        padding: 1rem;
+        margin: 1rem; 
+    }
+
+    .form-header h1 {
+        font-size: 1.5rem; 
+    }
+
+    .album-form {
+        padding: 1rem; 
+    }
+
+    .form-fields input[type="text"],
+    input[type="date"],
+    .form-fields select {
+        font-size: 0.875rem; 
+    }
+
+    .submit-button {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .record-img {
+        max-width: 250px; 
+    }
+}

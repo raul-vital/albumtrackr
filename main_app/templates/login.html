@@ -1,0 +1,31 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}" />
+{% endblock %} 
+{% block content %}
+
+
+{% if not user.is_authenticated %}
+<section>
+    <form action="{% url 'login' %}" method="post" class="login" autocomplete="off">
+      <h1>Login</h1>
+      {% csrf_token %} 
+      {{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}" />
+      <button type="submit" class="btn submit">Login</button>
+    </form>
+    <div class="privacy-message">
+      <p >
+        By continuing you agree to AlbumTrackr's Terms and Privacy Policy.
+      </p>
+    </div>
+    <div class="account">
+      <p style="color: white; text-align: center; opacity: 1;">
+        Don’t have an account? <a href="{% url 'signup' %}" style="color: white; text-decoration: underline;">Sign up</a>
+      </p>
+    </div>
+</section>
+
+{% endif %}
+{% endblock %}
