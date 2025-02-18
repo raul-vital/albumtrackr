@@ -1,22 +1,19 @@
-html {
-    box-sizing: border-box;
-    
-  }
 
-  /* *, 
-  *::before,
-  *::after {
-    box-sizing: inherit;
-  } */
-/* 
-  :root {
-    font-size: 62.5%;
-  } */
 
-body {
-    background-color: #120018;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    
+/* Ensure the body takes up the full height of the viewport */
+html, body {
+  background-color: #120018;
+  color: white;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
+
+/* Make the main content expand to push the footer down */
+.content {
+  flex: 1;
+}
+
+
+
