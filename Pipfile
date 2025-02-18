@@ -7,6 +7,10 @@ name = "pypi"
 psycopg2 = "*"
 requests = "*"
 beautifulsoup4 = "*"
+python-dotenv = "*"
+whitenoise = "*"
+gunicorn = "*"
+dj-database-url = "*"
 
 [dev-packages]
 
