@@ -6,8 +6,8 @@
 <section>
   <div>
     <h2>{{ album.title }}</h2>
-    <h4><i>Artist: {{ album.artist }}</i></h4>
-    <p>Genre: {{album.genres}}</p>
+    <h4><i>Artist: {{ album.artist|title }}</i></h4>
+    <p>Genre: {{album.genres|title }}</p>
     <p>Release Date: {{ album.release_date }}</p>
     <div>
       <a href="{% url 'album-update' album.id %}" class="edit-delete-links">Edit</a>
@@ -48,7 +48,7 @@
     {% for song in album.song_set.all %}
       <tr>
         <td>
-          ★ <a href="{% url 'song-detail' song.id %}" style="color: white;">{{ song.title }}</a>
+          ★ <a href="{% url 'song-detail' song.id %}" style="color: white;">{{ song.title|title }}</a>
         </td>
         <td>{{ song.release_date }}</td>
       </tr>
