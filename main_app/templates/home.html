@@ -1,18 +1,21 @@
-
 {% extends 'base.html' %} 
-{% block content %}  
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}" />
+{% endblock %} 
+{% block content %}
 
 
 <div class="homepage">
-<h1>AlbumTrackr</h1>
-<hr />
-<p>All of your favorite albums 🎵</p>
-{% if not user.is_authenticated %}
-<a href="{% url 'login' %}" class="btn login-button">Login</a>
+  <h1>AlbumTrackr</h1>
+  <hr />
+  <p>All of your favorite albums 🎵</p>
+  {% if not user.is_authenticated %}
+  <a href="{% url 'login' %}" class="btn login-button">Login</a>
 </div>
 
 {% endif %}
   
-  {% endblock %}
+{% endblock %}
  
   
