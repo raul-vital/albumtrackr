@@ -37,12 +37,12 @@ nav ul li a:hover {
 }
 
 .logout-button {
-    background: none;
-    border: none;
+    background-color: #120018; ;
+    border:#120018;
     color: white;
     font-size: 20px;
     font-weight: bold;
-    padding: 3px 18px;
+    padding: 5px 20px;
     cursor: pointer;
     transition: all 0.3s ease-in-out; 
     display: inline-block; 
