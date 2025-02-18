@@ -19,7 +19,7 @@ import hashlib, random, os, requests
 YOUTUBE_API_KEYS = [key.strip() for key in os.getenv("YOUTUBE_API_KEYS", "").split(",") if key.strip()]
 YOUTUBE_SEARCH_URL = os.getenv('YOUTUBE_SEARCH_URL')
 GENIUS_ACCESS_TOKEN = os.getenv("GENIUS_ACCESS_TOKEN")
-GENIUS_API_URL = os.getenv("GENIUS_API_URL", "https://api.genius.com/")
+GENIUS_API_URL = os.getenv("GENIUS_API_URL")
 
 class Home(LoginView):
     template_name = 'home.html'
