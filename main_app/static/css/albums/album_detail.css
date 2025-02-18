@@ -34,7 +34,6 @@
 }
 
 .album-detail-container h2 {
-    /* color: #ff00ff; */
     text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
@@ -49,7 +48,6 @@
     text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
-/* Section Styles */
 section {
     margin-bottom: 25px;
     border-radius: 16px;
@@ -62,12 +60,12 @@ h2, h3 {
     text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
+
 p {
     color: #fff;
     font-size: 1rem;
 }
 
-/* Song Table */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -91,11 +89,6 @@ table td a {
     text-decoration: none;
 }
 
-table td a:hover {
-    /* color: #ff00ff; */
-}
-
-/* Form Section */
 form {
     background: linear-gradient(#120018, #e66465, #120018);
     padding: 25px;
@@ -120,7 +113,6 @@ form input:focus, form select:focus {
     outline: none;
 }
 
-/* Neon Techy Style for Edit and Delete Text */
 .edit-delete-links {
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     color: white;
@@ -140,7 +132,6 @@ form input:focus, form select:focus {
     transform: scale(1.05); 
 }
 
-/* Neon Techy Style for Add Song button */
 .submit {
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     color: white;
@@ -160,7 +151,6 @@ form input:focus, form select:focus {
     transform: scale(1.05); 
 }
 
-
 .submit-button {
     background-color: #5dade2;
     color: #fff;
@@ -176,6 +166,14 @@ form input:focus, form select:focus {
 .submit-button:hover {
     background-color: #3498db;
 }
+h2 {
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+    font-weight: bold !important; 
+    color: white !important; /* Force white text */
+    text-align: left !important;
+    margin-bottom: 10px !important;
+    text-transform: capitalize;
+}
 
 /* Button Styles */
 .album-detail-container a {
@@ -187,7 +185,6 @@ form input:focus, form select:focus {
     text-decoration: underline;
 }
 
-/* Responsive Media Queries */
 @media (max-width: 768px) {
     .album-detail-container {
         padding: 1.5rem;

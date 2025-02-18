@@ -1,4 +1,4 @@
-/* General Styles */
+
 body {
     font-family: 'Arial', sans-serif;
     background: #111;
@@ -7,7 +7,6 @@ body {
     padding: 0;
 }
 
-/* Album Collection Section */
 section {
     margin-bottom: 30px;
     padding: 20px;
@@ -16,14 +15,12 @@ section {
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
 }
 
-/* Title Style */
 h1 {
     text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
-/* Individual Album Card */
 .album-card {
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     border-radius: 12px;
@@ -40,7 +37,6 @@ h1 {
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.5), 0 0 40px rgba(255, 0, 255, 0.3);
 }
 
-/* Neon Glow Animation */
 .album-card::before {
     content: '';
     position: absolute;
@@ -59,10 +55,30 @@ h1 {
     z-index: 1;
 }
 
-/* Neon Text Styles */
 h2, h4 {
     color: white; 
 }
+h2 {
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+    display: inline-block;
+    font-weight: bold !important; 
+    color: white !important; /* Force white text */
+    text-align: left !important;
+    margin-bottom: 10px !important;
+    text-transform: capitalize;
+}
+
+h2:hover {
+    color: rgb(165, 8, 201) !important; 
+    text-shadow: 0 0 10px rgba(255, 26, 26, 0.8), 
+                 0 0 20px rgba(255, 0, 0, 0.6), 
+                 0 0 30px rgba(225, 35, 218, 0.531); 
+    transform: scale(1.02); /* Subtle pop effect */
+    font-weight: 700;
+
+}
+
+
 
 p {
     color: #fff;
@@ -80,7 +96,6 @@ p {
     text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
-/* Neon Techy Link Style for Edit/Delete */
 .album-card .edit-delete-links {
     background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     color: white;
@@ -112,21 +127,17 @@ p {
 .albums-container {
     display: flex;
      flex-direction: column;
-     gap: 1.5rem; /* Spacing between albums */
+     gap: 1.5rem; 
      justify-content: center;
    }
   
-a{
-    text-decoration: none;
-    color: white;
-    text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
-}
+
 hr{
     width: 100%; 
     display: flex;
     justify-self:left
 }
-/* Responsive Styling */
+
 @media (max-width: 768px) {
     .album-card {
         padding: 1.5rem;

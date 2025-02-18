@@ -1,4 +1,4 @@
-/* General form styling */
+
 section {
     background-color: #120018;
     color: white;
@@ -34,7 +34,6 @@ form.login h1 {
     margin-bottom: 20px;
 }
 
-/* Form field container - keeps label and input side by side */
 form.login p {
     display: flex;
     align-items: center;
@@ -43,20 +42,19 @@ form.login p {
     margin-bottom: 10px;
 }
 
-/* Labels aligned to the left */
+
 form.login label {
     font-size: 16px;
     font-weight: 600;
     color: rgb(252, 246, 250);
-    flex: 1; /* Ensures the labels take up equal space */
+    flex: 1; 
     text-align: left;
-    margin-right: 10px; /* Creates space between label and input */
+    margin-right: 10px; 
     padding-right: 0px;
 }
 
-/* Inputs aligned to the right */
 form.login input {
-    flex: 2; /* Makes inputs take up more space */
+    flex: 2; 
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
@@ -66,17 +64,16 @@ form.login input {
 }
 
 form.login p input {
-    width: 100%; /* Ensures all inputs stretch correctly */
+    width: 100%; 
 }
 
-/* Input focus effect - Soft Glow on Click */
+
 form.login input:focus {
     outline: none;
     border: 1px solid #b114b4;
-    box-shadow: 0 0 6px rgba(244, 25, 241, 0.808); /* Light neon glow */
+    box-shadow: 0 0 6px rgba(244, 25, 241, 0.808); 
     transition: box-shadow 0.5s ease-in-out, border 0.2s ease-in-out;
 }
-
 
 button.btn.submit {
     background-color: #a831d0;
