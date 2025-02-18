@@ -10,18 +10,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CustomLoginForm
 from main_app.authentication import EmailOrUsernameModelBackend 
-import requests
 from django.conf import settings
-import os
 from bs4 import BeautifulSoup
 from django.core.cache import cache
-import hashlib
-import random 
+import hashlib, random, os, requests
+
 
 YOUTUBE_API_KEYS = [key.strip() for key in os.getenv("YOUTUBE_API_KEYS", "").split(",") if key.strip()]
 YOUTUBE_SEARCH_URL = os.getenv('YOUTUBE_SEARCH_URL')
 GENIUS_ACCESS_TOKEN = os.getenv("GENIUS_ACCESS_TOKEN")
-GENIUS_API_URL = "https://api.genius.com/"
+GENIUS_API_URL = os.getenv("GENIUS_API_URL")
 
 class Home(LoginView):
     template_name = 'home.html'
@@ -155,9 +153,10 @@ def get_lyrics_from_genius(song_title, artist):
     return scrape_lyrics(song_url) if song_url else "Lyrics not found."
 
 def scrape_lyrics(url):
-    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
+    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"})
     if response.status_code != 200:
         return "Lyrics not available."
+    print(response.status_code)
 
     soup = BeautifulSoup(response.text, "html.parser")
     lyrics = "\n".join(div.get_text(separator="\n") for div in soup.select("div[data-lyrics-container='true']"))
