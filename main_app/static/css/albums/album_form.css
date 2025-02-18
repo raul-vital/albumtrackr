@@ -55,9 +55,8 @@
 
   input[type="date"]:hover{
     border-color: #5dade2;
-
   }
-  
+/*   
   .submit-button {
     background-color: #5dade2;
     color: #fff;
@@ -74,7 +73,38 @@
   .submit-button:hover {
     background-color: #3498db;
   }
-  
+   */
+
+
+  .submit-button {
+  background-color: #a831d0 !important;
+  color: white!important;;
+  border: none!important;;
+  padding: 8px 16px!important;;
+  margin-top: 12px!important;;
+  cursor: pointer!important;;
+  border-radius: 5px!important;;
+  font-size: 14px!important;;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  text-shadow: 0 0 5px #ffffff;
+  width: 120px;
+  text-align: center;
+}
+
+.submit-button:hover {
+  color: white;
+  background: linear-gradient(135deg, #390119, #a10ca3, #c20a57); 
+  box-shadow: 0 0 15px #ca3486, 0 0 30px #9b0041, 0 0 45px #9b0041; 
+  transform: scale(1.05);
+  font-weight: 700; 
+  text-shadow: 0 0 10px #ca3486, 0 0 20px #9b0041, 0 0 30px #9b0041; 
+}
+
+.submit-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 0 10px #ff0059, 0 0 20px #ff0059, 0 0 30px #9b0041;
+}
+
   img{
     display: flex;
     align-items: center;

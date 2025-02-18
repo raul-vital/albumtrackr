@@ -143,22 +143,27 @@ class SongDelete(LoginRequiredMixin,DeleteView):
 
 
 def get_lyrics_from_genius(song_title, artist):
+    if not GENIUS_API_URL:
+        print("⚠️ Error: GENIUS_API_URL is not set.")
+        return "Lyrics not found."
+
     headers = {"Authorization": f"Bearer {GENIUS_ACCESS_TOKEN}"}
     params = {"q": f"{song_title} {artist}"}
 
-    response = requests.get(f"{GENIUS_API_URL}search", headers=headers, params=params).json()
+    try:
+        response = requests.get(f"{GENIUS_API_URL}search", headers=headers, params=params)
+        response.raise_for_status()  # Ensure we handle bad responses
 
-    song_url = f"https://genius.com{response.get('response', {}).get('hits', [{}])[0].get('result', {}).get('path', '')}"
-    
-    return scrape_lyrics(song_url) if song_url else "Lyrics not found."
+        data = response.json()
+        hits = data.get("response", {}).get("hits", [])
 
-def scrape_lyrics(url):
-    response = requests.get(url, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"})
-    if response.status_code != 200:
+        if not hits:
+            print("❌ No lyrics found on Genius.")
+            return "Lyrics not found."
+
+        song_url = f"https://genius.com{hits[0]['result']['path']}"
+        return hits
+
+    except (requests.exceptions.RequestException, IndexError, KeyError) as e:
+        print(f"⚠️ Genius API error: {e}")
         return "Lyrics not available."
-    print(response.status_code)
-
-    soup = BeautifulSoup(response.text, "html.parser")
-    lyrics = "\n".join(div.get_text(separator="\n") for div in soup.select("div[data-lyrics-container='true']"))
-    
-    return lyrics.strip() or "Lyrics not found."
