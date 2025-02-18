@@ -17,13 +17,16 @@
     </table>
     <button type="submit" class="btn submit">Submit!</button>
   </form>
-  <p >
-    By continuing you agree to AlbumTrackr's Terms and Privacy Policy.
-  </p>
-  <p style="color: white; opacity: 1; text-align: center; margin-top: 7px;">
-    Already have an account? 
-    <a href="{% url 'login' %}" style="color: white; text-decoration: underline;">Log in</a>
-</p>
+  <div class="privacy-message">
+    <p >
+      By continuing you agree to AlbumTrackr's Terms and Privacy Policy.
+    </p>
+  </div>
+  <div class="account">
+    <p style="color: white; text-align: center; opacity: 1;">
+      Don’t have an account? <a href="{% url 'signup' %}" style="color: white; text-decoration: underline;">Sign up</a>
+    </p>
+  </div>
 
 </section>
 {% endblock %}

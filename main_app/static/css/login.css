@@ -8,7 +8,7 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 30px
+    padding: 10px
 }
 
 form.login {
@@ -34,13 +34,49 @@ form.login h1 {
     margin-bottom: 20px;
 }
 
+/* Form field container - keeps label and input side by side */
 form.login p {
     display: flex;
-    flex-direction: row;
-    justify-content: left;
-    color: rgb(252, 246, 250);
-
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
 }
+
+/* Labels aligned to the left */
+form.login label {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(252, 246, 250);
+    flex: 1; /* Ensures the labels take up equal space */
+    text-align: left;
+    margin-right: 10px; /* Creates space between label and input */
+    padding-right: 0px;
+}
+
+/* Inputs aligned to the right */
+form.login input {
+    flex: 2; /* Makes inputs take up more space */
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(220, 220, 220);
+    background-color: #ffffff;
+    width: 100%;
+}
+
+form.login p input {
+    width: 100%; /* Ensures all inputs stretch correctly */
+}
+
+/* Input focus effect - Soft Glow on Click */
+form.login input:focus {
+    outline: none;
+    border: 1px solid #b114b4;
+    box-shadow: 0 0 6px rgba(244, 25, 241, 0.808); /* Light neon glow */
+    transition: box-shadow 0.5s ease-in-out, border 0.2s ease-in-out;
+}
+
 
 button.btn.submit {
     background-color: #a831d0;
@@ -57,12 +93,16 @@ button.btn.submit {
 
 button.btn.submit:hover {
     color: white;
-    background: linear-gradient(135deg, #390119, #a10ca3, #9b0041); /* Neon pink & purple, with dark edges */
-    box-shadow: 0 0 15px #ca3486, 0 0 30px #9b0041, 0 0 45px #9b0041; /* Intense neon glow */
+    background: linear-gradient(135deg, #390119, #a10ca3, #c20a57); 
+    box-shadow: 0 0 15px #ca3486, 0 0 30px #9b0041, 0 0 45px #9b0041; 
     transform: scale(1.05);
-    font-weight: 600; /* Make text bold */
+    font-weight: 700; 
     text-shadow: 0 0 10px #ca3486, 0 0 20px #9b0041, 0 0 30px #9b0041; 
-   /* Neon glow effect on the text */
+}
+
+button.btn.submit:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px #ff0059, 0 0 20px #ff0059, 0 0 30px #9b0041;
 }
 
 .privacy-message {
@@ -73,3 +113,9 @@ button.btn.submit:hover {
     padding-top: 0px;
 }
 
+@media (max-width: 600px) {
+    form.login {
+        width: 90%;
+        padding: 20px;
+    }
+}
