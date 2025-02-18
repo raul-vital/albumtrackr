@@ -59,28 +59,21 @@
   }
   
   .submit-button {
-    background-color: #a831d0;
-    color: white;
+    background-color: #5dade2;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
     border: none;
-    padding: 8px 16px;
-    margin-top: 12px;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-    text-shadow: 0 0 5px #ffffff;
-}
-  
+    transition: background-color 0.3s ease;
+    justify-content: right;
+  }
   
   .submit-button:hover {
-    color: white;
-    background: linear-gradient(135deg, #390119, #a10ca3, #9b0041); /* Neon pink & purple, with dark edges */
-    box-shadow: 0 0 15px #ca3486, 0 0 30px #9b0041, 0 0 45px #9b0041; /* Intense neon glow */
-    transform: scale(1.05);
-    font-weight: 600; /* Make text bold */
-    text-shadow: 0 0 10px #ca3486, 0 0 20px #9b0041, 0 0 30px #9b0041; 
-   /* Neon glow effect on the text */
-}
+    background-color: #3498db;
+  }
   
   img{
     display: flex;
