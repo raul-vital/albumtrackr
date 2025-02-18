@@ -5,7 +5,7 @@
 
 <div class="song-detail-container">
   <div class="song-header">
-    <h1>🎵 {{ song.title }}</h1>
+    <h1>🎵 {{ song.title|title }}</h1>
     <hr>
   </div>
 
@@ -21,10 +21,10 @@
     </thead>
     <tbody>
       <tr>
-        <td>{{ song.title }}</td>
+        <td>{{ song.title|title }}</td>
         <td>{{ song.release_date }}</td>
-        <td>{{ song.release_country }}</td>
-        <td>{{ song.mood }}</td>
+        <td>{{ song.release_country|title }}</td>
+        <td>{{ song.mood|title }}</td>
         <td>
           <a href="{% url 'song-update' song.id %}" class="edit-link">Edit</a>
           <a href="{% url 'song-delete' song.id %}" class="delete-link">Delete</a>

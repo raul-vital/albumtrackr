@@ -61,10 +61,11 @@ h2, h4 {
     color: white; 
 }
 h2 {
+    font-size: 1.8rem;
     text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
     display: inline-block;
     font-weight: bold !important; 
-    color: white !important; /* Force white text */
+    color: white !important; 
     text-align: left !important;
     margin-bottom: 10px !important;
     text-transform: capitalize;
@@ -75,11 +76,9 @@ h2:hover {
     text-shadow: 0 0 10px rgba(255, 26, 26, 0.8), 
                  0 0 20px rgba(255, 0, 0, 0.6), 
                  0 0 30px rgba(225, 35, 218, 0.531); 
-    transform: scale(1.02); /* Subtle pop effect */
+    transform: scale(1.02);
     font-weight: 700;
-
 }
-
 
 
 p {
