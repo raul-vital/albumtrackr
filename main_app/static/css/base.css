@@ -1,6 +1,4 @@
 
-
-/* Ensure the body takes up the full height of the viewport */
 html, body {
   background-color: #120018;
   color: white;
@@ -9,11 +7,3 @@ html, body {
   display: flex;
   flex-direction: column;
 }
-
-/* Make the main content expand to push the footer down */
-.content {
-  flex: 1;
-}
-
-
-
