@@ -1,5 +1,6 @@
 section {
-    background-color: #a831d0;
+    background-color: #120018;
+    color: white;
     width: 100%;
     height: 100vh;
     display: flex;
@@ -9,13 +10,18 @@ section {
     padding: 30px;
 }
 
-
 form.form-container{
-    background-color: #cc90e0;
+    background-color: white;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px 20px;
-
+    border-radius: 10px;
+    border: 1px solid rgb(220, 220, 220);
+  -moz-box-shadow: -1px 5px 19px -5px rgba(233, 220, 33, 0.984);
+  -webkit-box-shadow: -1px 5px 19px -5px rgba(240, 222, 23, 0.874);
+  box-shadow: -1px 5px 19px -5px rgba(224, 16, 243, 0.958);
 }
+

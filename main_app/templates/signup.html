@@ -1,7 +1,6 @@
 {% extends 'base.html' %} 
 {% load static %} 
 {% block head %}
-{% comment %} <link rel="stylesheet" href="{% static 'css/form.css' %}" /> {% endcomment %}
 <link rel="stylesheet" href="{% static 'css/sign_up.css' %}" />
 {% endblock %} 
 {% block content %}
@@ -25,9 +24,6 @@
     Already have an account? 
     <a href="{% url 'login' %}" style="color: white; text-decoration: underline;">Log in</a>
 </p>
-
-
-  
 
 </section>
 {% endblock %}
