@@ -10,13 +10,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import CustomLoginForm
 from main_app.authentication import EmailOrUsernameModelBackend 
-import requests
 from django.conf import settings
-import os
 from bs4 import BeautifulSoup
 from django.core.cache import cache
-import hashlib
-import random 
+import hashlib, random, os, requests
+
 
 YOUTUBE_API_KEYS = [key.strip() for key in os.getenv("YOUTUBE_API_KEYS", "").split(",") if key.strip()]
 YOUTUBE_SEARCH_URL = os.getenv('YOUTUBE_SEARCH_URL')

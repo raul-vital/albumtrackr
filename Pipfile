@@ -5,10 +5,6 @@ name = "pypi"
 
 [packages]
 psycopg2 = "*"
-python-dotenv = "*"
-whitenoise = "*"
-gunicorn = "*"
-dj-database-url = "*"
 requests = "*"
 beautifulsoup4 = "*"
 
