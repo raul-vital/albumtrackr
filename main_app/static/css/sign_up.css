@@ -1,40 +1,108 @@
-section { 
-    background-color: #a831d0;
+section {
+    background-color: #120018;
+    color: white;
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 30px;
 }
 
-form.form-container{
-    background-color: #cc90e0;
+form.form-container {
+    background: linear-gradient(135deg, #080717, #25122e, #24243e);
+    width: 450px;
+    max-width: 90%;
+    color: black;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px 20px;
+    padding-bottom: 25px;
+    padding-top: 15px;
+    padding-left: 0px;
+    margin-left: 0px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgb(28, 5, 40);
+    box-shadow: -1px 5px 19px -5px rgba(142, 14, 154, 0.811);
+}
+
+form.form-container h1 {
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(222, 107, 235, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+form.form-container label {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(252, 246, 250);
+    margin-bottom: 5px;
+    text-align: left;
+    width: 100%;
+}
+
+form.form-container input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid rgb(220, 220, 220);
+    background-color: #ffffff;
+    margin-bottom: 10px; 
+}
+
+form.form-container input:focus {
+    outline: none;
+    border: 1px solid #b114b4;
+    box-shadow: 0 0 6px rgba(244, 25, 241, 0.808);
+    transition: box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
 }
 
 button.btn.submit {
     background-color: #a831d0;
     color: white;
     border: none;
-    padding: 5px 10px;
-    margin-top: 8px;
+    padding: 10px 20px;
+    margin-top: 15px;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 14px;
+    font-size: 16px;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-    text-shadow: 0 0 5px #ffffff; 
+    text-shadow: 0 0 5px #ffffff;
 }
 
 button.btn.submit:hover {
-    background-color: #8c27b3;
-    box-shadow: 0 0 15px #e6b3ff, 0 0 30px #d98cff, 0 0 45px #bf40ff; 
-    transform: scale(1.05); 
+    color: white;
+    background: linear-gradient(135deg, #390119, #a10ca3, #c20a57);
+    box-shadow: 0 0 15px #ca3486, 0 0 30px #9b0041, 0 0 45px #9b0041;
+    transform: scale(1.05);
+    font-weight: 700;
+    text-shadow: 0 0 10px #ca3486, 0 0 20px #9b0041, 0 0 30px #9b0041;
+}
+
+button.btn.submit:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px #ff0059, 0 0 20px #ff0059, 0 0 30px #9b0041;
+}
+
+.privacy-message {
+    padding-top: 15px;
+}
+
+.account {
+    padding-top: 0px;
+}
+
+form.form-container span.helptext {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    form.form-container {
+        width: 90%;
+        padding: 20px;
+    }
 }
