@@ -1,0 +1,12 @@
+.env
+settings.py
+
+echo "main_app/static/videos/video.mp4" >> .gitignore
+echo "main_app/static/videos/video2.mp4" >> .gitignore
+git add .gitignore
+git commit -m "Ignored large video files"
+main_app/static/videos/video.mp4
+main_app/static/videos/video2.mp4
+main_app/static/videos/video_small.mp4
+main_app/static/videos/video.mp4
+main_app/static/videos/video2.mp4
