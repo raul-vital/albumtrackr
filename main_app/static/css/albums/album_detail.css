@@ -59,7 +59,6 @@ section {
 }
 
 h2, h3 {
-    /* color: #ff00ff; */
     text-shadow: 0 0 8px rgba(255, 0, 255, 0.8), 0 0 15px rgba(0, 255, 255, 0.6);
 }
 
