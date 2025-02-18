@@ -3,7 +3,7 @@ from django.urls import reverse
 
 from django.contrib.auth.models import User
 
-# Create your models here.
+
 class Album(models.Model):
     title = models.CharField(max_length=100)
     artist = models.CharField(max_length=100)

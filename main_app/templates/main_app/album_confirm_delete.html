@@ -6,7 +6,7 @@
 <section class="section-container">
   <div class="div-container">
     <img src="{% static 'images/delete-warning.png' %}" alt="exclamation warning" class="warning-img"/>
-    <p class="p-text">Deleting "{{album.title}}"</p>
+    <p class="p-text">Deleting "{{album.title|title }}"</p>
     <hr>
     <h2>Are you sure?</h2>
     <p>You won't be able to revert this!</p>

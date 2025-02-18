@@ -1,10 +1,7 @@
-
-
 nav ul {
-   
-    list-style: none; /* Removes bullets */
+    list-style: none; 
     padding: 20px 0px; 
-    margin: 0; /* Removes default margin */
+    margin: 0; 
     display: flex; 
     justify-content: flex-end;
     align-items: center;
@@ -22,22 +19,21 @@ nav ul li a {
     font-size: 20px;
     font-weight: bold;
     padding: 3px 18px;
-    transition: all 0.1s ease-in-out; /* Smooth transition */
+    transition: all 0.1s ease-in-out; 
     display: inline-block;
 }
 
 nav ul li a:hover {
     background: linear-gradient(#120018, #e66465, #120018);
     border-radius: 30px;
-    transform: translateY(-2px); /* Moves element UP */
-    /* box-shadow: 0px 5px 10px rgba(230, 100, 101, 0.5); Moves the link up slightly */
+    transform: translateY(-2px); 
 }
 
-/* ------------------- Logout Button ---------------------- */
+
 #logout-form {
     margin: 0;
     padding: 0;
-    display: inline; /* Ensure form doesn't take extra space */
+    display: inline; 
 }
 
 .logout-button {
@@ -48,17 +44,12 @@ nav ul li a:hover {
     font-weight: bold;
     padding: 3px 18px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out; /* Smooth effect */
-    display: inline-block; /* Allows transform */
+    transition: all 0.3s ease-in-out; 
+    display: inline-block; 
 }
 
-/* --- Hover Effect for Logout --- */
 .logout-button:hover {
     background: linear-gradient(#120018, #e66465, #120018);
     border-radius: 30px;
-    transform: translateY(-2px); /* Moves button UP */
-    /* box-shadow: 0px 5px 10px rgba(230, 100, 101, 0.5); Adds glow */
+    transform: translateY(-2px); 
 }
-
-/* nav ul li a:hover, .logout-button:hover {
-    box-shadow: 0 5px 15px rgba(230, 100, 101, 0.5); /* Soft glow */
