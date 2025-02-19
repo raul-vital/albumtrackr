@@ -145,6 +145,7 @@ class SongDelete(LoginRequiredMixin,DeleteView):
 def scrape_lyrics(url):
     response = requests.get(url, headers={"User-Agent": "Mozilla/5.0"})
     if response.status_code != 200:
+        print(f"The response when trying to scrape the lyrics is {response}, with reason of {response.reason}.")
         return "Lyrics not available."
 
     soup = BeautifulSoup(response.text, "html.parser")
