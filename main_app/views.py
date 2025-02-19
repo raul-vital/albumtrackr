@@ -149,7 +149,8 @@ def scrape_lyrics(url):
 
     soup = BeautifulSoup(response.text, "html.parser")
     lyrics = "\n".join(div.get_text(separator="\n") for div in soup.select("div[data-lyrics-container='true']"))
-    
+    print(f"The lyrics we found are: {lyrics.strip()}")
+
     return lyrics.strip() or "Lyrics not found."
 
 def get_lyrics_from_genius(song_title, artist):
